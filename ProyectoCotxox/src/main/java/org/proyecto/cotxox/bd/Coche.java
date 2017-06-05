@@ -2,6 +2,7 @@ package org.proyecto.cotxox.bd;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,19 +13,19 @@ public class Coche {
 
 	@Id // indico que esta propiedad es la primary key
 	private String matricula;
-	//@JsonProperty("contacte")
 	private String modelo;
 	private String foto;
-	private String idConductor;
+	@ManyToOne
+	private Conductor conductor;
 	
 	public Coche() {
 	}
 
-	public Coche(String matricula, String modelo, String foto, String idConductor) {
+	public Coche(String matricula, String modelo, String foto, Conductor conductor) {
 		this.matricula = matricula;
 		this.modelo = modelo;
 		this.foto = foto;
-		this.idConductor = idConductor;
+		this.conductor = conductor;
 	}
 
 	public String getMatricula() {
@@ -51,11 +52,11 @@ public class Coche {
 		this.foto = foto;
 	}
 	
-	public String getIdConductor(){
-		return idConductor;
+	public Conductor getConductor(){
+		return conductor;
 	}
-	public void setIdConductor(String idConductor){
-		this.idConductor = idConductor;
+	public void setConductor(Conductor conductor){
+		this.conductor = conductor;
 	}
 
 

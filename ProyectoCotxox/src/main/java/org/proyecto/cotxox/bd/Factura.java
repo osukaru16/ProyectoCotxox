@@ -6,8 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @Entity // indico que esta es la entidad de mi BBDD
 @XmlRootElement // per a que acepti peticions XML
 public class Factura {
@@ -15,7 +13,6 @@ public class Factura {
 	@Id // indico que esta propiedad es la primary key
 	@GeneratedValue
 	private Integer idFactura;
-	//@JsonProperty("contacte")
 	private String fecha;
 	private String hora;
 	private Double importe;
@@ -35,10 +32,7 @@ public class Factura {
 		this.importe = importe;
 		this.comision = comision;
 		this.conductor = conductor;
-		this.user = user;
-		
-		
-		
+		this.user = user;		
 	}
 
 	public Integer getIdFactura() {
@@ -82,12 +76,6 @@ public class Factura {
 	public void getComision(Double comision){
 		 this.comision = comision;
 	}
-
-	
-	
-	
-	
-	
 	
 	public void setConductor(Conductor conductor){
 		this.conductor = conductor;
@@ -98,13 +86,6 @@ public class Factura {
 	}
 	
 	
-	
-	
-
-
-	//Hay que crear las claves foraneas de usuario y conductor
-
-
 
 
 

@@ -1,6 +1,7 @@
 package org.proyecto.cotxox.bd;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -11,11 +12,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Conductor {
 
 	@Id // indico que esta propiedad es la primary key
-	private String idConductor;
-	//@JsonProperty("contacte")
+	@GeneratedValue
+	private Integer idConductor;
 	private String nombre;
 	//private String telefon;
-
 	private String apellidos;
 	private String foto;
 	private Boolean libre;
@@ -24,7 +24,7 @@ public class Conductor {
 	public Conductor() {
 	}
 
-	public Conductor(String idConductor, String nombre, String apellidos, String foto, Boolean libre) {
+	public Conductor(Integer idConductor, String nombre, String apellidos, String foto, Boolean libre) {
 		this.idConductor = idConductor;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -33,11 +33,11 @@ public class Conductor {
 		//this.telefon = telefon;
 	}
 
-	public String getIdConductor() {
+	public Integer getIdConductor() {
 		return idConductor;
 	}
 
-	public void setIdConductor(String idConductor) {
+	public void setIdConductor(Integer idConductor) {
 		this.idConductor = idConductor;
 	}
 
@@ -74,7 +74,6 @@ public class Conductor {
 	}
 
 
-	//Pendiente la clave foranea del coche
 
 
 

@@ -12,7 +12,6 @@ public class Usuario {
 
 	@Id // indico que esta propiedad es la primary key
 	private String nickName;
-	//@JsonProperty("contacte")
 	private String nombre;
 	private String apellidos;
 	private String telefon;
