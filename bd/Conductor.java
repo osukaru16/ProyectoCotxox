@@ -1,6 +1,7 @@
 package org.proyecto.cotxox.bd;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -8,37 +9,38 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity // indico que esta es la entidad de mi BBDD
 @XmlRootElement // per a que acepti peticions XML
-public class Usuario {
+public class Conductor {
 
 	@Id // indico que esta propiedad es la primary key
-	private String nickName;
+	@GeneratedValue
+	private Integer idConductor;
+	private String password
 	private String nombre;
+	//private String telefon;
 	private String apellidos;
-	private String telefon;
 	private String foto;
-	private String email;
-	private String password;
+	private Boolean libre;
 
-
-	public Usuario() {
+	
+	public Conductor() {
 	}
 
-	public Usuario(String nickName, String nombre, String apellidos, String telefon, String foto, String email, String password) {
-		this.nickName = nickName;
+	public Conductor(Integer idConductor, String password,String nombre, String apellidos, String foto, Boolean libre) {
+		this.idConductor = idConductor;
+		this.password = password;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.telefon = telefon;
 		this.foto = foto;
-		this.email = email;
-		this.password = password;
+		this.libre = libre;
+		//this.telefon = telefon;
 	}
 
-	public String getnickName() {
-		return nickName;
+	public Integer getIdConductor() {
+		return idConductor;
 	}
 
-	public void setnickName(String nickName) {
-		this.nickName = nickName;
+	public void setIdConductor(Integer idConductor) {
+		this.idConductor = idConductor;
 	}
 
 	public String getNombre() {
@@ -57,14 +59,6 @@ public class Usuario {
 		this.apellidos =  apellidos;
 	}
 
-	public String getTelefon() {
-		return telefon;
-	}
-
-	public void setTelefon(String telefon) {
-		this.telefon = telefon;
-	}
-
 	public String getFoto(){
 		return foto;
 	}
@@ -73,21 +67,21 @@ public class Usuario {
 		this.foto = foto;
 	}
 
-	public String getEmail(){
-		return email;
+	public Boolean getLibre(){
+		return libre;
 	}
 
-	public void setEmail(String email){
-		this.email = email;
+	public void setLibre(Boolean libre){
+		this.libre = libre;
 	}
 
 	public String getPassword(){
 		return this.password;
 	}
 
-	public void setPassord( String password){
+	public void setPassword(String password){
 		this.password = password;
-	} 
+	}
 
 
 
@@ -117,11 +111,15 @@ public class Usuario {
 
 
 
+	/*
 
+	public String getTelefon() {
+		return telefon;
+	}
 
-
-
-
+	public void setTelefon(String telefon) {
+		this.telefon = telefon;
+	}*/
 
 
 
